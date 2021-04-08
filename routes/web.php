@@ -16,8 +16,12 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'someData' => request()->input('test') === '1' ? [1, 2, 3] : [1, 2, 3, 4, 5, 6],
+//        'someData' => request()->input('test') === '1' ? [1, 2, 3] : [1, 2, 3, 4, 5, 6],
     ]);
+});
+
+Route::get('/data', function () {
+    return response()->json(['someData' => request()->input('test') === '1' ? [1, 2, 3] : [1, 2, 3, 4, 5, 6]]);
 });
 
 Route::get('/dashboard', function () {
